@@ -16,6 +16,9 @@ with lib;
       ./adapters.nix
     ];
 
+    # TODO: remove this as soon as https://nixpk.gs/pr-tracker.html?pr=301342 reaches nixos-unstable
+    extraPlugins = [pkgs.vimPlugins.nvim-nio];
+
     settingsOptions =
       (import ./options.nix {inherit lib helpers;})
       // {
