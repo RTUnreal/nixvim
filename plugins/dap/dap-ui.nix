@@ -217,7 +217,11 @@ in {
       // cfg.extraOptions;
   in
     mkIf cfg.enable {
-      extraPlugins = [cfg.package];
+      extraPlugins = [
+        cfg.package
+        # TODO: remove this as soon as https://nixpk.gs/pr-tracker.html?pr=301478 reaches nixos-unstable
+        pkgs.vimPlugins.nvim-nio
+      ];
 
       plugins.dap = {
         enable = true;
